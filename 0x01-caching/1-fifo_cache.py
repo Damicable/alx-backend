@@ -19,7 +19,6 @@ class FIFOCache(BaseCaching):
             self.cache_data.pop(key_to_discard)
             print("DISCARD: {}".format(key_to_discard))
 
-
     def get(self, key):
         """Returns the key value in self.cache_data"""
         if key is None or key not in self.cache_data.keys():

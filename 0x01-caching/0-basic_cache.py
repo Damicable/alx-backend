@@ -14,9 +14,8 @@ class BasicCache(BaseCaching):
         if key and item:
             self.cache_data[key] = item
 
-
     def get(self, key):
         """Returns the key value linked to parent cache"""
-        if key is None or key not in self.cache_data.key():
+        if key is None or key not in self.cache_data.keys():
             return None
         return self.cache_data[key]

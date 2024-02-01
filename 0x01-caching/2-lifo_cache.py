@@ -14,7 +14,6 @@ class LIFOCache(BaseCaching):
         super().__init__()
         self.added_similar = None
 
-
     def put(self, key, item):
         """Assigns item value to keys on self.cache_data"""
         if key and item:
@@ -29,7 +28,6 @@ class LIFOCache(BaseCaching):
                     self.added_similar = None
                 self.cache_data.pop(key_to_discard)
                 print("DISCARD: {}".format(key_to_discard))
-
 
     def get(self, key):
         """Gets the value of a given key in parent cache data"""
