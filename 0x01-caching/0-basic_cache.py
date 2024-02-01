@@ -7,7 +7,7 @@ from base_caching import BaseCaching
 
 class BasicCache(BaseCaching):
     """
-    BasicCache - Basic cache function that inherite from BaseCaching
+    BasicCache - Basic cache class that inherite from BaseCaching
     """
     def put(self, key, item):
         """Assign a key value to dictionary"""

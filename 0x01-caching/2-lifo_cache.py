@@ -30,8 +30,9 @@ class LIFOCache(BaseCaching):
                 self.cache_data.pop(key_to_discard)
                 print("DISCARD: {}".format(key_to_discard))
 
+
     def get(self, key):
-        """Gets the value assigned to a given key in parent cache data"""
+        """Gets the value of a given key in parent cache data"""
         if key is None or key not in self.cache_data.keys():
             return None
         return self.cache_data[key]

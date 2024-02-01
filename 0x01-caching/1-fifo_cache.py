@@ -7,7 +7,7 @@ from base_caching import BaseCaching
 
 class FIFOCache(BaseCaching):
     """
-    FIFOCache - function class that inherites from BaseCaching
+    FIFOCache - FIFO class that inherites from BaseCaching
     """
     def put(self, key, item):
         """This assigns item value for key to dic self.cache_data"""
