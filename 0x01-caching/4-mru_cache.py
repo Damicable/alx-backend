@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""LRUCache module"""
+"""MRU cache 1 module"""
 
 
 from datetime import datetime
 from base_caching import BaseCaching
 
 
-class LRUCache(BaseCaching):
+class MRUCache(BaseCaching):
     """
-    LRUCache - Class LRU cache that inherits from BaseCaching
+    MRUCache - MRU cache class inheriting from BaseCaching
     """
     def __init__(self):
         """Override init"""
@@ -19,9 +19,11 @@ class LRUCache(BaseCaching):
         """Put value that sets key and item on parent dict"""
         if key and item:
             self.cache_data[key] = item
+            key_to_discard = max(
+                self.access_log, key=self.access_log.get) if len(
+                    self.access_log) > 0 else None
             self.access_log[key] = datetime.now()
             if len(self.cache_data) > self.MAX_ITEMS:
-                key_to_discard = min(self.access_log, key=self.access_log.get)
                 self.cache_data.pop(key_to_discard)
                 self.access_log.pop(key_to_discard)
                 print("DISCARD: {}".format(key_to_discard))
