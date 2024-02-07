@@ -8,7 +8,6 @@ from typing import Any
 
 
 app = Flask(__name__)
-babel = Babel(app)
 
 
 class Config(object):
@@ -19,6 +18,8 @@ class Config(object):
 
 
 app.config.from_object(Config)
+
+babel = Babel(app)
 
 
 @app.route('/', strict_slashes=False)
