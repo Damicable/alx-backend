@@ -4,7 +4,6 @@
 
 from flask import Flask, render_template
 from flask_babel import Babel
-from typing import Any
 
 
 app = Flask(__name__)
@@ -23,7 +22,7 @@ babel = Babel(app)
 
 
 @app.route('/', strict_slashes=False)
-def home() -> Any:
+def home() -> str:
     """Home page"""
     return render_template('1-index.html')
 
