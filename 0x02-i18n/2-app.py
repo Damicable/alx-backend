@@ -1,40 +1,35 @@
 #!/usr/bin/env python3
-"""A Flask app module with babel"""
-
-
+"""Get_locale module"""
 from flask import Flask, render_template, request
 from flask_babel import Babel
-from typing import Any
 
 
 app = Flask(__name__)
-
 babel = Babel(app)
 
 
-class Config(object):
-    """Babel config"""
+class Config():
+    """Babel configuration"""
+
     LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
 app.config.from_object(Config)
 
-babel = Babel(app)
+
+@app.route("/")
+def home() -> str:
+    """index page"""
+    return render_template("2-index.html")
 
 
-@babel.localselector
-def get_locale() -> Any:
-    """Gets locale"""
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
-
-
-@app.route('/')
-def home() -> Any:
-    """Application home page"""
-    return render_template('2-index.html')
+@babel.localeselector
+def get_locale() -> str:
+    """Gets locale supported languages"""
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port="5000")
+    app.run(debug=True)
