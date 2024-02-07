@@ -8,7 +8,7 @@ from typig import Any
 app = Flask(__name__)
 
 
-@app.route('/', strict_slashes=False)
+@app.route('/')
 def home() -> Any:
     """Home page"""
     return render_template('0-index.html')
